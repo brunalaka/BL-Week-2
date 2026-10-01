@@ -1,26 +1,55 @@
 <!DOCTYPE html>
+<!-- Tells the browser: "this is a modern web page" -->
 <html lang="en">
+<!-- lang="en" = page language (helps screen readers + translation) -->
+
+<!-- ============================================
+     HEAD — invisible setup (not shown on screen)
+     ============================================ -->
 <head>
+    <!-- Text encoding: makes symbols like ✓ and — display correctly -->
     <meta charset="UTF-8">
+    <!-- Responsive: page width = device width (needed for mobile) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Browser tab title -->
     <title>Pricing Plans — HTML version</title>
+
+    <!-- FONT: Inter from Google Fonts (weights 400 / 500 / 600 / 700) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- STYLES: all visual design lives in styles.css -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
+<!-- ============================================
+     BODY — everything visible on screen
+     ============================================ -->
 <body>
+    <!-- Floating label pinned to top of page (demo only, not part of the design) -->
     <p class="page-label"><strong>HTML version</strong> — static markup</p>
+
+    <!-- CARDS ROW: holds both pricing cards side by side -->
     <div class="cards-container">
+
+        <!-- ───────── CARD 1: Hobby (free plan) ───────── -->
         <div class="card">
+            <!-- Top area: title, price, feature list -->
             <div class="card-top">
+                <!-- Plan name -->
                 <h3 class="card-title">Hobby</h3>
+                <!-- Price line (amount only, no period for free plan) -->
                 <p class="card-price">
                     <span class="card-price-amount">Free</span>
                 </p>
+                <!-- Feature list block -->
                 <div class="card-content">
+                    <!-- List intro label -->
                     <p class="includes-text">Includes:</p>
+                    <!-- Feature list: each <li> = one row -->
                     <ul class="features-list">
+                        <!-- Row = ✓ icon + feature text (same pattern repeats below) -->
                         <li>
                             <span class="checkmark">✓</span>
                             No credit card required
@@ -36,11 +65,16 @@
                     </ul>
                 </div>
             </div>
+            <!-- Button: "secondary" = quiet, low-emphasis style (grey) -->
             <button class="download-button secondary">Download</button>
         </div>
+
+        <!-- ───────── CARD 2: Pro (paid plan) ───────── -->
+        <!-- Same structure as Card 1; only content differs -->
         <div class="card">
             <div class="card-top">
                 <h3 class="card-title">Pro</h3>
+                <!-- Price line: big amount + small "/mo." period -->
                 <p class="card-price">
                     <span class="card-price-amount">$20</span>
                     <span class="card-price-period">/mo.</span>
@@ -67,7 +101,43 @@
                     </ul>
                 </div>
             </div>
+            <!-- Button: "primary" = high-emphasis style (black, white text) -->
             <button class="download-button primary">Get Pro</button>
+        </div>
+
+        <!-- ───────── CARD 3: Business (team plan) ───────── -->
+        <!-- Same structure as Card 1; only content differs -->
+        <div class="card">
+            <div class="card-top">
+                <h3 class="card-title">Business</h3>
+                <p class="card-price">
+                    <span class="card-price-amount">$40</span>
+                    <span class="card-price-period">/user/mo.</span>
+                </p>
+                <div class="card-content">
+                    <p class="includes-text">Everything in Pro, plus:</p>
+                    <ul class="features-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Team admin dashboard
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Centralized billing
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Single sign-on (SSO)
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Priority support
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Button: "secondary" keeps Pro as the single highlighted plan -->
+            <button class="download-button secondary">Contact Sales</button>
         </div>
     </div>
 </body>
