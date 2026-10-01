@@ -1,148 +1,190 @@
+/* ==========================================================
+   PRICING CARDS — STYLES
+   Sections: 1 Reset · 2 Page · 3 Layout · 4 Card · 5 Text
+             6 Feature list · 7 Buttons · 8 Demo label
+   Colors:  #26251e = main text · rgba(38,37,30,.5) = muted text
+            #f7f7f4 = page bg   · #f2f1ed = card bg
+   ========================================================== */
+
+
+/* ---------- 1. RESET ---------- */
+/* Wipes browser defaults so spacing is fully ours */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;                 /* no outer space */
+    padding: 0;                /* no inner space */
+    box-sizing: border-box;    /* width includes padding (matches Figma) */
 }
 
+
+/* ---------- 2. PAGE ---------- */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #f7f7f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Inter first, system fonts as backup */
+    background-color: #f7f7f4; /* page background (warm off-white) */
+    display: flex;             /* flex = easy centering */
+    justify-content: center;   /* center horizontally */
+    align-items: center;       /* center vertically */
+    min-height: 100vh;         /* at least full screen height */
+    padding: 20px;             /* breathing room at screen edges */
 }
 
+
+/* ---------- 3. LAYOUT ---------- */
+/* Row that holds the cards */
 .cards-container {
     display: flex;
-    flex-direction: row;
-    gap: 24px;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: row;       /* cards side by side */
+    gap: 24px;                 /* space between cards */
+    flex-wrap: nowrap;         /* never stack — stay in one row */
+    justify-content: center;   /* center the row */
+    align-items: flex-start;   /* align cards to top (heights can differ) */
 }
 
+
+/* ---------- 4. CARD ---------- */
 .card {
     display: flex;
-    flex-direction: column;
-    min-height: 380px;
-    background-color: #f2f1ed;
-    border-radius: 4px;
-    padding: 16px;
-    width: 320px;
-    flex-shrink: 0;
+    flex-direction: column;    /* stack content top → bottom */
+    min-height: 380px;         /* both cards share a minimum height */
+    background-color: #f2f1ed; /* card fill */
+    border-radius: 4px;        /* subtle rounded corners */
+    padding: 16px;             /* space inside card edges */
+    width: 320px;              /* fixed card width */
+    flex-shrink: 0;            /* don't squeeze when screen is narrow */
 }
 
+/* Wrapper for title + price + list */
 .card-top {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    /* stack vertically */
 }
 
+
+/* ---------- 5. TEXT: TITLE + PRICE ---------- */
+/* Plan name ("Hobby", "Pro") */
 .card-title {
     font-size: 22px;
-    line-height: 28px;
-    font-weight: 400;
-    color: #26251e;
-    margin-bottom: 8px;
+    line-height: 28px;         /* vertical text spacing */
+    font-weight: 400;          /* regular weight */
+    color: #26251e;            /* main text color */
+    margin-bottom: 8px;        /* gap below title */
 }
 
+/* Price row container */
 .card-price {
     font-size: 20px;
-    color: rgba(38, 37, 30, 0.5);
+    color: rgba(38, 37, 30, 0.5); /* muted (50% opacity) */
     display: inline-flex;
-    align-items: baseline;
+    align-items: baseline;     /* align amount + "/mo." on the same text line */
 }
 
+/* Big price ("$20", "Free") */
 .card-price-amount {
     font-size: 22px;
     font-weight: 400;
     color: rgba(38, 37, 30, 0.5);
 }
 
+/* Small "/mo." suffix */
 .card-price-period {
-    font-size: 14px;
+    font-size: 14px;           /* smaller than amount */
     color: rgba(38, 37, 30, 0.5);
 }
 
+
+/* ---------- 6. FEATURE LIST ---------- */
+/* Block around list; pushes button away */
 .card-content {
-    margin-bottom: 32px;
+    margin-bottom: 32px;       /* min gap above button */
 }
 
+/* "Includes:" intro line */
 .includes-text {
     font-size: 16px;
-    color: rgba(38, 37, 30, 0.5);
-    margin: 16px 0px;
+    color: rgba(38, 37, 30, 0.5); /* muted */
+    margin: 16px 0px;          /* 16 above + below, 0 sides */
 }
 
+/* The <ul> list */
 .features-list {
-    list-style: none;
+    list-style: none;          /* hide default bullets */
     padding: 0;
 }
 
+/* Each feature row */
 .features-list li {
     display: flex;
-    align-items: center;
-    margin-bottom: 8px;
+    align-items: center;       /* center ✓ with text vertically */
+    margin-bottom: 8px;        /* gap between rows */
     font-size: 16px;
     color: #26251e;
 }
 
+/* ✓ icon */
 .checkmark {
     color: #26251e;
-    font-size: 14px;
-    margin-right: 10px;
+    font-size: 14px;           /* a bit smaller than text */
+    margin-right: 10px;        /* gap between ✓ and text */
     font-weight: 400;
 }
 
+
+/* ---------- 7. BUTTONS ---------- */
+/* BASE button = secondary look (grey) */
 .download-button {
-    margin-top: auto;
-    width: fit-content;
-    background-color: #e6e5e0;
-    border: none;
-    border-radius: 999px;
-    padding: 14px 24px;
+    margin-top: auto;          /* pins button to card bottom */
+    width: fit-content;        /* width hugs the label */
+    background-color: #e6e5e0; /* default fill */
+    border: none;              /* remove browser outline */
+    border-radius: 999px;      /* full pill shape */
+    padding: 14px 24px;        /* 14 top/bottom · 24 left/right */
     font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    font-weight: 500;          /* medium weight */
+    color: #333;               /* label color */
+    cursor: pointer;           /* hand cursor on hover */
+    transition: background-color 0.2s ease; /* smooth color change (0.2s) */
 }
 
-.download-button:hover {
+/* STATES — secondary */
+.download-button:hover {       /* mouse over */
+    background-color: #D8D6CE; /* slightly darker */
+}
+
+.download-button:active {      /* while pressed */
     background-color: #D8D6CE;
 }
 
-.download-button:active {
-    background-color: #D8D6CE;
-}
-
+/* VARIANT — primary (black, high emphasis). Add on top of base. */
 .download-button.primary {
-    background-color: #111;
-    color: #fff;
+    background-color: #111;    /* near-black fill */
+    color: #fff;               /* white label */
 }
 
-.download-button.primary:hover {
+/* STATES — primary */
+.download-button.primary:hover {  /* mouse over */
+    background-color: #333;       /* lighter black */
+}
+
+.download-button.primary:active { /* while pressed */
     background-color: #333;
 }
 
-.download-button.primary:active {
-    background-color: #333;
-}
 
+/* ---------- 8. DEMO LABEL (not part of the design) ---------- */
+/* Floating tag at top of the page */
 .page-label {
-    position: fixed;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;           /* stays on screen, ignores layout */
+    top: 16px;                 /* 16 from top edge */
+    left: 50%;                 /* start at horizontal center... */
+    transform: translateX(-50%); /* ...then shift back half its width = true center */
     font-size: 14px;
     color: #666;
     background: #fff;
     padding: 8px 16px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* soft shadow: x0 y2 blur8 · 8% black */
 }
 
+/* Bold part of label */
 .page-label strong {
-    color: #333;
+    color: #333;               /* darker for emphasis */
 }
